@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registro de Ventas</title>
+</head>
+<body>
+<h1>Registro de Ventas en Tienda Física</h1>
+<form>
+<label for="boleta">Número de Boleta:</label>
+<input type="text" id="boleta" name="boleta" required><br><br>
+    <label for="productos">Productos:</label>
+    <input type="text" id="productos" name="productos" required><br><br>
+
+    <label for="cantidad">Cantidad de Productos:</label>
+    <input type="number" id="cantidad" name="cantidad" required><br><br>
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" required><br><br>
+
+    <label for="rut">RUT del Cliente:</label>
+    <input type="text" id="rut" name="rut" required><br><br>
+
+    <label for="nombre">Nombre del Cliente:</label>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <input type="submit" value="Guardar Venta">
+</form>
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const boleta = document.getElementById('boleta').value;
+        const productos = document.getElementById('productos').value;
+        const cantidad = document.getElementById('cantidad').value;
+        const precio = document.getElementById('precio').value;
+        const rut = document.getElementById('rut').value;
+        const nombre = document.getElementById('nombre').value;
+
+        // Validar que todos los campos estén completos
+        if (boleta === '' || productos === '' || cantidad === '' || precio === '' || rut === '' || nombre === '') {
+            alert('Por favor, complete todos los campos obligatorios.');
+            return;
+        }
+
+        // Validar que el número de boleta sea único
+        // Aquí se realizaría la validación con la base de datos
+
+        // Guardar la información de la venta en la base de datos
+        // Aquí se realizaría la lógica para guardar la venta en la base de datos
+
+        // Mostrar mensaje de confirmación
+        alert('La venta ha sido registrada exitosamente.');
+
+        // Mostrar el resumen de la venta registrada
+        const resumen = `Número de Boleta: ${boleta}\nProductos: ${productos}\nCantidad de Productos: ${cantidad}\nPrecio: ${precio}\nRUT del Cliente: ${rut}\nNombre del Cliente: ${nombre}`;
+        alert(resumen);
+
+        // Limpiar los campos del formulario
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
