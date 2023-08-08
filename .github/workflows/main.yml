@@ -1,0 +1,29 @@
+name: Terraform Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.4  # Ajusta la versión de Terraform
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Apply Terraform Changes
+        run: terraform apply -auto-approve
+
+      - name: Deploy Application
+        run: |
+          # Aquí puedes agregar los comandos necesarios para desplegar tu aplicación
